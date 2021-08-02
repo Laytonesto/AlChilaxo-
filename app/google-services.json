@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "43027973072",
+    "project_id": "alchilaxo",
+    "storage_bucket": "alchilaxo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43027973072:android:338a369c708277faa2afd5",
+        "android_client_info": {
+          "package_name": "com.example.alchilaxo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43027973072-4q8ha5dpo8kpr78ob5kcskk4aibudkpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBRwQSmpZ1ciXUAwwUlmL7KdgoNprZElw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43027973072-4q8ha5dpo8kpr78ob5kcskk4aibudkpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43027973072:android:d3d4bed0a28d53f6a2afd5",
+        "android_client_info": {
+          "package_name": "com.example.alchilaxotest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43027973072-4q8ha5dpo8kpr78ob5kcskk4aibudkpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBRwQSmpZ1ciXUAwwUlmL7KdgoNprZElw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43027973072-4q8ha5dpo8kpr78ob5kcskk4aibudkpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
