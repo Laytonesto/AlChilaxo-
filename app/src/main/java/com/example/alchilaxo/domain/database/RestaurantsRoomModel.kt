@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "cbRestaurants")
 data class RestaurantsRoomModel(
-    @PrimaryKey val uid: Int,
+    @PrimaryKey val uid: String,
     @ColumnInfo val name: String,
     @ColumnInfo val imageName: String,
 )

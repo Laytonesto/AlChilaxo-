@@ -10,6 +10,7 @@ class DynamicAdapter<T>(
     private val entries: List<T>,
     private val action: (vh: DynamicAdapter.ViewHolder, view: View, entry: T, position: Int) -> Unit): RecyclerView.Adapter<DynamicAdapter.ViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DynamicAdapter.ViewHolder {
         return ViewHolder(
             LayoutInflater

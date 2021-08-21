@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
 
         viewModel.generateRestaurants()
 
-        log("prueba")
 
         viewModel.getRestaurantsDataOptions().observe(viewLifecycleOwner, Observer {
             it?.let {

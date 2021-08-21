@@ -1,25 +1,27 @@
 package com.example.alchilaxo.domain.entities
 
+import com.google.firebase.firestore.DocumentId
 import com.google.gson.annotations.SerializedName
 
 
 data class RestaurantsModel(
     @SerializedName("cadenas")
-    var restaurants: List<RestaurantsRow>,
+    var restaurants: List<RestaurantsRow>? = listOf(),
     @SerializedName("promociones")
-    var initpromos: List<PromocionesInit>,
+    var initpromos: List<PromocionesInit>? = listOf(),
     @SerializedName("cadenasFavoritas")
-    var favorites: List<Favorite>,
+    var favorites: List<Favorite>? = listOf(),
     @SerializedName("clases")
-    var clases: List<Clases>,
+    var clases: List<Clases>? = listOf(),
     @SerializedName("tipoTarjetaCredito")
-    var tipoTarjetaCredito: List<TipoTarjeta>
+    var tipoTarjetaCredito: List<TipoTarjeta>? = listOf()
 )
 
 data class RestaurantsRow(
-    var idCadena: Int,
     var nombre: String = "",
-    val imagen: String? = ""
+    val imagen: String? = "",
+    @DocumentId
+    var idCadena: String
 )
 
 data class PromocionesInit(
