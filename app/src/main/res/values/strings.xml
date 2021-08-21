@@ -20,12 +20,12 @@
     <string name="title_activity_domicilio">MainActivity</string>
     <string name="title_activity_adomicioo">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Buscador</string>
+    <string name="title_dashboard">Favorito</string>
     <string name="favorite">favorito</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="cart">carrito</string>
-    <string name="perfil">perfil</string>
+    <string name="cart">Carrito</string>
+    <string name="perfil">Perfil</string>
     <string name="Americana">Americana</string>
     <string name="Italiana">Italiana</string>
     <string name="Postres">Postres</string>
@@ -155,6 +155,7 @@
     <string name="cadena">Restaurantes</string>
     <string name="platos">Platos</string>
     <string name="noencontro">No se encuentra</string>
+    <string name="carrito">Carrito</string>
 
     <string-array name="month">
         <item>01</item>

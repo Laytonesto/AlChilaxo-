@@ -22,4 +22,11 @@
         android:name="com.example.alchilaxo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.example.alchilaxo.ui.sidemenu.PerfilFragment"
+        android:label="@string/perfil"
+        tools:layout="@layout/fragment_perfil" />
+
 </navigation>

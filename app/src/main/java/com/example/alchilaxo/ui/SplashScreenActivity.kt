@@ -7,7 +7,8 @@ import android.widget.Toast
 import com.example.alchilaxo.R
 import com.example.alchilaxo.databinding.ActivitySplashScreenBinding
 import android.content.SharedPreferences
-import com.example.alchilaxo.BuildConfig
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -21,6 +22,12 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.back.alpha=0.5f
+        val a: Animation = AnimationUtils.loadAnimation(this, com.example.alchilaxo.R.anim.anim_img)
+        a.fillAfter = true
+        a.reset()
+
+        binding.logo.startAnimation(a)
+
 
         binding.back.animate().setDuration(3000).alpha(1f).withEndAction{
             Toast.makeText(applicationContext, getFirstTimeRun().toString(), Toast.LENGTH_LONG).show()
@@ -40,10 +47,15 @@ class SplashScreenActivity : AppCompatActivity() {
 
         }
 
+    override fun onRestart() {
+        super.onRestart()
+        finish()
+    }
+
     private fun getFirstTimeRun(): Int {
         val sp = getSharedPreferences("MYAPP", 0)
         val result: Int
-        val currentVersionCode: Int = BuildConfig.VERSION_CODE
+        val currentVersionCode: Int = com.example.alchilaxo.BuildConfig.VERSION_CODE
         val lastVersionCode = sp.getInt("FIRSTTIMERUN", -1)
         result =
             if (lastVersionCode == -1) 0 else if (lastVersionCode == currentVersionCode) 1 else 2
@@ -56,5 +68,7 @@ class SplashScreenActivity : AppCompatActivity() {
     1: la App alguna vez se ha ejecutado.
     2: la App se ha ejecutado alguna vez, pero no esa versión.
      */
+
+
 
 }
