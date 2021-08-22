@@ -14,7 +14,7 @@ class RestaurantsRepository(private val restaurantsDao: RestaurantsDao) {
         // Parsing 'Restaurants' to 'RestaurantsRoomModel'
         for (restaurants in restaurantsList) {
             val restaurantsObject = RestaurantsRoomModel(
-                restaurants.idCadena,
+                restaurants.id,
                 restaurants.nombre ?: "",
                 restaurants.imagen ?: ""
             )

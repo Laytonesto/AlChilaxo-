@@ -18,6 +18,8 @@ class AdminViewModel(private val dispatcher: CoroutineDispatcher,
                      private val db: FirebaseFirestore
 ): ViewModel()  {
 
+    private var loadingCadenas: MutableLiveData<Boolean> = MutableLiveData()
+
 
     private val restaurantsDataSource = MutableLiveData<RestaurantsModel>()
 
@@ -31,7 +33,7 @@ class AdminViewModel(private val dispatcher: CoroutineDispatcher,
     fun generatecadena(nombre: String){
         viewModelScope.launch(dispatcher) {
 
-            val cadena = RestaurantsRow(nombre,"link","x")
+            val cadena = RestaurantsRow("f", nombre,"link")
 
             db.collection("cadenas").document().set(cadena).addOnSuccessListener {
                 log("Exito set")
@@ -48,18 +50,26 @@ class AdminViewModel(private val dispatcher: CoroutineDispatcher,
     }
 
     fun getcadena(){
+        loadingCadenas.postValue(true)
+
         viewModelScope.launch(dispatcher) {
+
+            var cadenaF : List<RestaurantsRow>? = listOf()
+
 
 
             db.collection("cadenas")
                 .get()
                 .addOnSuccessListener {
                     try {
-                        val cadenaF = it.toObjects<RestaurantsRow>()
+                        cadenaF = it.toObjects<RestaurantsRow>()
 
+
+                        log("Funciono: "+it.documents)
                         log("Funciono: "+cadenaF)
                         restaurantsDataSource.postValue(RestaurantsModel(cadenaF))
 
+                        loadingCadenas.postValue(false)
 
 
 
@@ -75,6 +85,8 @@ class AdminViewModel(private val dispatcher: CoroutineDispatcher,
         }
 
     }
+
+    fun fetchLoadCadenas(): LiveData<Boolean> = loadingCadenas
 
 
 

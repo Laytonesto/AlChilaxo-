@@ -18,11 +18,15 @@ data class RestaurantsModel(
 )
 
 data class RestaurantsRow(
-    var nombre: String = "",
-    val imagen: String? = "",
     @DocumentId
-    var idCadena: String
-)
+    var id: String,
+    var nombre: String = "",
+    val imagen: String? = ""
+
+){
+    @Suppress("unused")
+    constructor() : this("", "", "")
+}
 
 data class PromocionesInit(
     var idPromocion: Int,

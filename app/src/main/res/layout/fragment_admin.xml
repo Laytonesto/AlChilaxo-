@@ -30,6 +30,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar en FireStore" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCadena"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:spanCount="1"
+            tools:ignore="MissingConstraints"
+            tools:listitem="@layout/list_admin" />
+
+        <ProgressBar
+            android:id="@+id/CadenasLoading"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:theme="@style/themeRed"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
