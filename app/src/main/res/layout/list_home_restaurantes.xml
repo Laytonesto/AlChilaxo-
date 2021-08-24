@@ -9,16 +9,6 @@
         android:layout_height="130dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtRestaurante"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:text="Restaurante"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
         <ImageButton
             android:id="@+id/btnRestaurant"
             android:layout_width="match_parent"

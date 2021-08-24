@@ -29,10 +29,15 @@ data class RestaurantsRow(
 }
 
 data class PromocionesInit(
-    var idPromocion: Int,
+    @DocumentId
+    var id: String,
     var nombre: String = "",
+    var imagen: String = "",
     var descripcion: String = ""
-)
+){
+    @Suppress("unused")
+    constructor() : this("", "", "","")
+}
 
 data class Favorite(
     var idCadena: Int,

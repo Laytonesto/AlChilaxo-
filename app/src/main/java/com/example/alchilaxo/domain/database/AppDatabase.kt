@@ -13,14 +13,18 @@ import kotlinx.coroutines.CoroutineScope
     entities = [
         UserRoomModel::class,
         RestaurantsRoomModel::class,
+        InitPromosRoomModel::class,
+
     ],
-    version = 1
+    version = 2
 )
 
 abstract class AppDatabase: RoomDatabase()  {
 
     abstract fun RestaurantsDao(): RestaurantsDao
     abstract fun userDao(): UserDao
+    abstract fun initpromosDao(): InitPromosDao
+
 
 
     private class AppDatabaseCallback(

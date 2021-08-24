@@ -28,5 +28,11 @@
         android:name="com.example.alchilaxo.ui.sidemenu.PerfilFragment"
         android:label="@string/perfil"
         tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/navigation_restaurant_category"
+        android:name="com.example.alchilaxo.ui.sidemenu.CategoryFragment"
+        android:label="@string/rcategory"
+        tools:layout="@layout/fragment_category" />
+
 
 </navigation>

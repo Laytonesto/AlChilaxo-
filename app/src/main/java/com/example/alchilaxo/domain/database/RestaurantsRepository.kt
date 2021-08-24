@@ -8,6 +8,7 @@ class RestaurantsRepository(private val restaurantsDao: RestaurantsDao) {
 
 
 
+
     suspend fun insertRestaurantsList(restaurantsList: List<RestaurantsRow>) {
         val restaurantsListResponse: MutableList<RestaurantsRoomModel> = mutableListOf()
 
@@ -24,7 +25,6 @@ class RestaurantsRepository(private val restaurantsDao: RestaurantsDao) {
 
         restaurantsDao.insertRestaurantsList(restaurantsListResponse)
     }
-
     suspend fun insertRestaurants(restaurantsadd: RestaurantsRoomModel) {
 
         restaurantsDao.insertRestaurantsone(restaurantsadd)

@@ -9,11 +9,17 @@ import com.example.alchilaxo.domain.RestaurantsClasesModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import com.example.alchilaxo.domain.database.AppDatabase
+import com.example.alchilaxo.domain.database.InitPromosRepository
 import com.example.alchilaxo.domain.database.RestaurantsRepository
 import com.example.alchilaxo.domain.database.UserRepository
+import com.example.alchilaxo.domain.entities.PromocionesInit
 import com.example.alchilaxo.domain.entities.RestaurantsModel
+import com.example.alchilaxo.domain.entities.RestaurantsRow
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.toObjects
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
@@ -29,6 +35,8 @@ class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
 
     //Data Repositories
     private val RestaurantsRepository: RestaurantsRepository
+    private val InitPromosRepository: InitPromosRepository
+
     private val userRepository: UserRepository
 
 
@@ -40,6 +48,7 @@ class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
         )
 
         userRepository = UserRepository(databaseReference.userDao())
+        InitPromosRepository = InitPromosRepository(databaseReference.initpromosDao())
 
 
         RestaurantsRepository = RestaurantsRepository(databaseReference.RestaurantsDao())
@@ -47,9 +56,10 @@ class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
 
 
 
-    fun getRestaurantsDataOptions(): LiveData<RestaurantsClasesModel>{
+    fun getRestaurantsDataOptions(): LiveData<RestaurantsModel>{
         //return restaurantsDataSource
-        return dealsDataSource
+
+        return restaurantsDataSource
     }
 
 
@@ -62,39 +72,63 @@ class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
         viewModelScope.launch(dispatcher) {
 
             try {
-                var del : List<Deal>? = listOf()
-                var dela : String?
+                // Getting restaurants from database
+                val restaurantsList = RestaurantsRepository.getAllRestaurants()
+                val promosList = InitPromosRepository.getAllInitPromos()
 
 
-                db.collection("deals")
-                    .get()
-                    .addOnSuccessListener {
-                        try {
-                            dela = it.documents[0].get("title") as String?
-                            log("Funciono: "+dela)
-                            del = it.toObjects<Deal>()
+                if (restaurantsList.isEmpty()) {
+                    var del: List<RestaurantsRow>? = listOf()
 
-                            log("Funciono: "+del)
-                            dealsDataSource.postValue(RestaurantsClasesModel(del))
+                    db.collection("cadenas").get().addOnSuccessListener {
+
+                        val cadenas = it.toObjects<RestaurantsRow>()
+
+                        log(cadenas.toString())
+
+                        db.collection("promociones").get().addOnSuccessListener{
+
+                            val InitPromos = it.toObjects<PromocionesInit>()
+
+                            log(InitPromos.toString())
+
+                            val restaurantsValues = RestaurantsModel(cadenas,InitPromos)
+
+                            SetInitRoom(restaurantsValues)
+                            restaurantsDataSource.postValue(restaurantsValues)
                             loadingRestaurants.postValue(false)
                             loadingPromos.postValue(false)
 
 
-
-
-                        } catch (e: Exception) {
-                            log("Error 1: "+e)
                         }
-                    }.addOnFailureListener {
-                        log("Error 2")
 
                     }
 
 
-                // Getting restaurants from database
-                val restaurantsList = RestaurantsRepository.getAllRestaurants()
+                    /*
+                        RestaurantsRepository.insertRestaurantsList(docRef.await().result.toObjects<RestaurantsRow>())
+
+                        val restaurantsValues = RestaurantsModel(docRef.await().result.toObjects<RestaurantsRow>())
+
+                        restaurantsDataSource.postValue(restaurantsValues)
+                        loadingRestaurants.postValue(false)
+                        loadingPromos.postValue(false)
+
+                     */
 
 
+
+
+                }
+                else {
+
+                    val restaurantsValues = RestaurantsModel(restaurantsList,promosList)
+
+
+                    restaurantsDataSource.postValue(restaurantsValues)
+                    loadingRestaurants.postValue(false)
+                    loadingPromos.postValue(false)
+                }
 
             }
             catch (e: Exception) {
@@ -105,9 +139,33 @@ class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
         }
     }
 
+
+    fun SetInitRoom(LRestaurantsModel: RestaurantsModel) {
+
+        viewModelScope.launch(dispatcher) {
+
+            LRestaurantsModel.restaurants?.let { RestaurantsRepository.insertRestaurantsList(it) }
+            LRestaurantsModel.initpromos?.let { InitPromosRepository.insertInitPromosList(it) }
+
+        }
+    }
+
+    fun SetInitRoom2(LRestaurantsModel: List<RestaurantsRow>) {
+
+        viewModelScope.launch(dispatcher) {
+
+            RestaurantsRepository.insertRestaurantsList(LRestaurantsModel)
+
+        }
+    }
+
+
     fun getAccount(): LiveData<List<UserRoomModel>>{
         return userRepository.getAllUsers()
     }
+    fun fetchLoadRestaurants(): LiveData<Boolean> = loadingRestaurants
+
+
 
 
 }
