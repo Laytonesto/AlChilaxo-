@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.login.RegisterFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtNameRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/createaccount"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="25dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ledtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textColorHighlight="#000"
+            android:textColorHint="#000"
+            android:theme="@style/themeRed">
+
+            <EditText
+
+                android:id="@+id/edtNombre"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginBottom="25dp"
+
+                android:drawablePadding="12dp"
+                android:hint="@string/name"
+
+                android:inputType="text"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ledtCel"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/themeRed"
+            android:layout_below="@+id/back"
+            android:textColor="#000"
+            android:textColorHighlight="#000"
+            android:textColorHint="#000"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:id="@+id/edtCel"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginBottom="25dp"
+
+                android:drawablePadding="12dp"
+                android:hint="@string/ncelphone"
+
+                android:inputType="textPostalAddress"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ledtEmail"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/themeRed"
+            android:layout_below="@+id/back"
+            android:textColor="#000"
+            android:textColorHighlight="#000"
+            android:textColorHint="#000"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginBottom="25dp"
+
+                android:drawablePadding="12dp"
+                android:hint="@string/email"
+
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ledtPassword"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/themeRed"
+            android:layout_below="@+id/back"
+            android:textColor="#000"
+            app:passwordToggleEnabled="true"
+
+            android:textColorHighlight="#000"
+            android:textColorHint="#000"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginBottom="25dp"
+
+                android:drawablePadding="12dp"
+                android:hint="@string/password"
+
+                android:inputType="textPassword"
+
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ledtCPassword"
+            app:passwordToggleEnabled="true"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/themeRed"
+            android:layout_below="@+id/back"
+            android:textColor="#000"
+            android:textColorHighlight="#000"
+            android:textColorHint="#000"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:id="@+id/edtCPassword"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginBottom="25dp"
+
+                android:drawablePadding="12dp"
+                android:hint="@string/repassword"
+
+                android:inputType="textPassword"
+
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textColorHint="#000"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCrearCuenta"
+            style="@style/themeRed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:shadowColor="@color/transparent"
+            android:text="@string/createaccount"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeWidth="2dp" />
+
+
+
+    </LinearLayout>
+</LinearLayout>

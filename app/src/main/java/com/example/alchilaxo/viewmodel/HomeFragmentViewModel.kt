@@ -160,9 +160,8 @@ class HomeFragmentViewModel(private val dispatcher: CoroutineDispatcher,
     }
 
 
-    fun getAccount(): LiveData<List<UserRoomModel>>{
-        return userRepository.getAllUsers()
-    }
+
+
     fun fetchLoadRestaurants(): LiveData<Boolean> = loadingRestaurants
 
 

@@ -156,6 +156,9 @@
     <string name="platos">Platos</string>
     <string name="noencontro">No se encuentra</string>
     <string name="carrito">Carrito</string>
+    <string name="login">Iniciar Sesion</string>
+    <string name="claveError">Clave Erronea</string>
+    <string name="emailError">Correo Erroneo</string>
 
     <string-array name="month">
         <item>01</item>

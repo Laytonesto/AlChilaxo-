@@ -1,10 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:src="@drawable/deseas" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:src="@drawable/logomano" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputUserLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/back"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:theme="@style/themeRed">
+
+                <EditText
+                    android:id="@+id/edtBuscador"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="25dp"
+
+                    android:drawablePadding="12dp"
+
+                    android:hint="@string/buscar"
+                    android:inputType="textPostalAddress"
+
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHighlight="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/tbtnBuscador"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="start"
+                    android:layout_weight="0"
+                    android:background="@drawable/buscarb"
+                    android:gravity="center"
+                    android:textOff=""
+                    android:textOn="" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/rectan" />
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -140,4 +241,4 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

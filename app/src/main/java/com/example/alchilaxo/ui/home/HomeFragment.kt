@@ -76,10 +76,14 @@ class HomeFragment : Fragment(), DefaultFlow {
             it?.let {
                 if (it) {
                     binding.restaurantsLoading.visibility = View.VISIBLE
+                    binding.promosLoading.visibility = View.VISIBLE
                     binding.recyclerResta.visibility = View.GONE
+                    binding.recyclerPromo.visibility = View.GONE
                 } else {
                     binding.restaurantsLoading.visibility = View.GONE
+                    binding.promosLoading.visibility = View.GONE
                     binding.recyclerResta.visibility = View.VISIBLE
+                    binding.recyclerPromo.visibility = View.VISIBLE
 
                 }
             }
@@ -142,6 +146,14 @@ class HomeFragment : Fragment(), DefaultFlow {
 
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (activity is HomeActivity) {
+            (activity as HomeActivity).visibletab()
+        }
     }
 
     override fun onDestroyView() {

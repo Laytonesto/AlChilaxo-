@@ -152,7 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
-                        android:text="Promociones+Family Packs"
+                        android:text="Populares"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -211,6 +211,25 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCateMenu"
+                    style="@style/themeRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="15dp"
+
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="@string/menu"
+
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    app:backgroundTint="@color/colorPrimaryDark"
+                    app:cornerRadius="8dp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="2dp"/>
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCateFavori"
@@ -231,24 +250,7 @@
                     app:strokeColor="@color/colorGray"
                     app:strokeWidth="2dp"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCateMenu"
-                    style="@style/themeRed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="15dp"
 
-                    android:layout_weight="1"
-                    android:padding="0dp"
-                    android:text="@string/menu"
-
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
-                    app:backgroundTint="@color/colorPrimaryDark"
-                    app:cornerRadius="8dp"
-                    app:strokeColor="@color/colorPrimaryDark"
-                    app:strokeWidth="2dp"/>
             </LinearLayout>
 
             <ProgressBar

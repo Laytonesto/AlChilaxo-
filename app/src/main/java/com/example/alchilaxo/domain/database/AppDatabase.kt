@@ -16,7 +16,7 @@ import kotlinx.coroutines.CoroutineScope
         InitPromosRoomModel::class,
 
     ],
-    version = 2
+    version = 4
 )
 
 abstract class AppDatabase: RoomDatabase()  {

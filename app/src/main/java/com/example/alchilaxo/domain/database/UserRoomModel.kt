@@ -8,17 +8,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "cbUser")
 data class UserRoomModel(
-    @PrimaryKey(autoGenerate = true) val uid: Int,
+    @PrimaryKey val correoElectronico: String,
     @ColumnInfo val nombres: String,
-    @ColumnInfo val apellidos: String,
     @ColumnInfo val deviceId: String,
-    @ColumnInfo val idOs: String,
+    @ColumnInfo val tipo: Int,
     @ColumnInfo val numeroTelefono: String,
-    @ColumnInfo val idPais: String,
     @ColumnInfo val genero: String,
-    @ColumnInfo val idOrigenCuenta: String,
-    @ColumnInfo val nit: String,
-    @ColumnInfo val idUsuarioApp: String,
-    @ColumnInfo val correoElectronico: String,
+    @ColumnInfo val idOrigenCuenta: Int,
     @ColumnInfo val clave: String
 )
